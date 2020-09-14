@@ -9,7 +9,7 @@ export default function PlayStack({stackIndex}) {
   const isMobile = useSelector(state => state.general.isMobile)
 
   const root = {
-    width: isMobile ? '13vw' : '10vw'
+    width: isMobile ? '13.5%' : '12%'
   }
   const cardWrapper = {
     margin: '0 0 -100%'

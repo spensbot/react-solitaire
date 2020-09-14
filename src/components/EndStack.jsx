@@ -15,8 +15,8 @@ export default function EndStack({index}) {
 
   const root = {
     position: "relative",
-    width: isMobile ? '13vw': '10vw',
-    margin: isMobile ? '0 1vw 0 0': '0 3vw 0 0'
+    width: isMobile ? '20%': '17%',
+    margin: isMobile ? '0 1.5% 0 0': '0 3% 0 0'
   }
 
   const [{ isOver, canDrop }, drop] = useDrop({

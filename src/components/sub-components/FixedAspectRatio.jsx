@@ -15,11 +15,12 @@ const useStyles = makeStyles( theme => ({
   }
 }))
 
-export default function FixedAspectRatio({children, ratio}) {
+export default function FixedAspectRatio({children, ratio, width='100%'}) {
   const classes = useStyles()
 
   const containerStyle = {
-    paddingTop: `${100 / ratio}%`
+    paddingTop: `${100 / ratio}%`,
+    width: width
   }
 
   return (

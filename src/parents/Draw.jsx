@@ -8,7 +8,8 @@ import { last } from '../util/util'
 
 const useStyles = makeStyles( theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    width: '30%'
   },
 }))
 
@@ -45,20 +46,18 @@ export default function Draw() {
   })
 
   const cardWrapper = {
-    width: isMobile ? '13vw' : '10vw',
-    margin: isMobile ? '0 0 0 1vw' : '0 0 0 3vw',
+    width: isMobile ? '45%' : '40%',
+    margin: isMobile ? '0 0 0 5%' : '0 0 0 10%',
     opacity: isDragging ? 0.5 : 1
   }
 
   return (
     <div className={classes.root}>
-      <>
-        <div style={cardWrapper} ref={isFaceUp ? drag : null}>
+      <div style={cardWrapper} ref={isFaceUp ? drag : null}>
         <Card card={last(drawStack.faceUp)}/>
-        </div>
-      </>
+      </div>
       <div style={cardWrapper} onClick={cycleThroughStack} >
-      <Card card={last(drawStack.faceDown)} faceDown/>
+        <Card card={last(drawStack.faceDown)} faceDown/>
       </div>
     </div>
   )

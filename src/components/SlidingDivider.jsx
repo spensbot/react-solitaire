@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-export default function SlidingDivider({pane1, pane2, width='1rem', height=null, color='#666666', initialPosition=50}) {
+export default function SlidingDivider({pane1, pane2, width='0.8rem', height=null, color='#666666', initialPosition=70}) {
+
+  const [splitPercent] = useState(initialPosition)
 
   if (width && height) {
     console.error("Width and height should not both be defined!!!")
@@ -8,13 +10,14 @@ export default function SlidingDivider({pane1, pane2, width='1rem', height=null,
 
   const wrapperStyle = {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    height: '100%'
   }
   const pane1Style = {
-    flex: `${initialPosition} 0 0 `
+    flex: `${splitPercent} 0 0 `
   }
   const pane2Style = {
-    flex: `${100-initialPosition} 0 0 `,
+    flex: `${100-splitPercent} 0 0 `,
     backgroundColor: '#333333'
   }
   const dividerStyle = {
@@ -23,13 +26,17 @@ export default function SlidingDivider({pane1, pane2, width='1rem', height=null,
     backgroundColor: color
   }
 
+  const onDrag = (e) => {
+    console.log(e)
+  }
+
   return (
-    <div className={wrapperStyle}>
+    <div style={wrapperStyle}>
       <div style={pane1Style}>
         {pane1}
       </div>
 
-      <div style={dividerStyle} />
+      <div style={dividerStyle} draggable={true} onClick={onDrag} onDrag={onDrag} />
 
       <div style={pane2Style}>
         {pane2}

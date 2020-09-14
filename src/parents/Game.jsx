@@ -5,8 +5,9 @@ import Play from './Play'
 import End from './End'
 import Draw from './Draw'
 import { useSelector } from 'react-redux'
+import FixedAspectRatio from '../components/sub-components/FixedAspectRatio'
 
-export default function Main() {
+export default function Game() {
 
   const isMobile = useSelector(state => state.general.isMobile)
 
@@ -17,10 +18,12 @@ export default function Main() {
   return (
     <Surface>
       <div style={root}>
-        <Box display="flex" justifyContent="space-between" marginBottom="5%">
-          <End />
-          <Draw />
-        </Box>
+        <FixedAspectRatio ratio={4} >
+          <Box width="100%" display="flex" justifyContent="space-between" marginBottom="5%">
+            <End />
+            <Draw />
+          </Box>
+        </FixedAspectRatio>
         <Play />
       </div>
     </Surface>

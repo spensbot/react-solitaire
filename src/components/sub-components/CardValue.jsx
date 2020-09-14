@@ -19,11 +19,15 @@ export default function CardValue({card, rotate}) {
     transform: 'rotate(180deg)',
   }
 
-
   return (
     <div className={classes.root} style={rotate ? rotateStyle : null}>
-      <span style={{fontSize: isMobile ? '3vw' : '2vw', marginRight: '3%'}}>{card.value}</span>
-      <CardIcon suit={card.suit} size={isMobile ? '3vw' : '2vw'}/>
+      {/* <FixedAspectRatio width={'25%'} ratio={1.5}>
+        <svg width="100%" height="100%">
+          <text x="0" y="20" fontSize="20%" fill="black">{card.value}</text>
+        </svg>
+      </FixedAspectRatio> */}
+      <span style={{fontSize: isMobile ? '3vw' : '1.5vw', marginRight: '3%'}}>{card.value}</span>
+      <CardIcon suit={card.suit} size={isMobile ? '30%' : '20%'}/>
     </div>
   )
 }

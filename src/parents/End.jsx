@@ -5,6 +5,7 @@ import EndStack from '../components/EndStack'
 const useStyles = makeStyles( theme => ({
   root: {
     display: 'flex',
+    width: '70%',
   }
 }))
 
