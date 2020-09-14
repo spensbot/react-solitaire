@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { drawNext, drawReset } from '../redux/gameSlice'
 import { useDrag, DragPreviewImage } from 'react-dnd'
 import { last } from '../util/util' 
-import dragImage from '../images/pizza.png'
+// import dragImage from '../images/pizza.png'
 
 const useStyles = makeStyles( theme => ({
   root: {
