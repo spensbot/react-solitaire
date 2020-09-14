@@ -26,8 +26,8 @@ export default function CardValue({card, rotate}) {
           <text x="0" y="20" fontSize="20%" fill="black">{card.value}</text>
         </svg>
       </FixedAspectRatio> */}
-      <span style={{fontSize: isMobile ? '3vw' : '1.5vw', marginRight: '3%'}}>{card.value}</span>
-      <CardIcon suit={card.suit} size={isMobile ? '30%' : '20%'}/>
+      <span style={{fontSize: isMobile ? '2.5vw' : '1.3vw', marginRight: '3%'}}>{card.value}</span>
+      <CardIcon suit={card.suit} size={isMobile ? '25%' : '20%'}/>
     </div>
   )
 }

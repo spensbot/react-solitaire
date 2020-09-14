@@ -10,9 +10,6 @@ const useStyles = makeStyles( themes => ({
     width: '100vw',
     height: '100vh',
   },
-  game: {
-    padding: '5%'
-  }
 }))
 
 export default function Main() {

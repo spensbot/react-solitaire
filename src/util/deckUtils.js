@@ -27,7 +27,7 @@ const getRandomDeck = () => {
 
   randomDeck.push(sortedDeck[0])
 
-  return randomDeck
+  return randomDeck.reverse()
 }
 
 const getRandomDeckDecoded = () => {

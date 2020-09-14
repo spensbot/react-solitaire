@@ -12,7 +12,7 @@ export default function Game() {
   const isMobile = useSelector(state => state.general.isMobile)
 
   const root = {
-    padding: isMobile ? '2%' : '5%'
+    padding: isMobile ? '5% 1%' : '5%'
   }
 
   return (

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function SlidingDivider({pane1, pane2, width='0.8rem', height=null, color='#666666', initialPosition=70}) {
+export default function SlidingDivider({pane1, pane2, width='0.8rem', height=null, color='#666666', initialPosition=50}) {
 
   const [splitPercent] = useState(initialPosition)
 
