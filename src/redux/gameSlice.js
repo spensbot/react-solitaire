@@ -1,13 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getRandomGame, getEmptyGame } from '../util/deckUtils'
-
-const gameStateExample = {
-  playStacks: [], // 7 stacks
-  drawStacks: [
-    {faceUp: [], faceDown: []} // 1 stack
-  ],
-  endStacks: [], // 4 stacks
-}
+import { getRandomGame } from '../util/deckUtils'
 
 export const gameSlice = createSlice({
   name: 'game',
@@ -27,7 +19,7 @@ export const gameSlice = createSlice({
     moveCards: (state, action) => {
       const from = action.payload.from
       const to = action.payload.to
-      const count = action.payload.count
+      // const count = action.payload.count
       const cards = action.payload.cards
 
       console.log(cards)

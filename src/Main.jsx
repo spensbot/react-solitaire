@@ -1,7 +1,6 @@
 import React from 'react'
-import { Box, makeStyles } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core'
 import Game from './parents/Game'
-import SlidingDivider from './components/SlidingDivider'
 
 
 const useStyles = makeStyles( themes => ({

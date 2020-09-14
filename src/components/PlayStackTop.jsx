@@ -47,9 +47,12 @@ export default function PlayStackTop({children, stackIndex, drag, card}) {
     })
   })
 
+  function nothing(bool) {}
+
   function multiRef(el) {
     drag(el)
     drop(el)
+    nothing(isOver)
   }
 
   return (

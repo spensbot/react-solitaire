@@ -97,22 +97,22 @@ const decodeCard = encoding => {
   }
 
   const suitN = Math.floor(encoding / 13)
-  if (suitN == 1) {
+  if (suitN === 1) {
     card.suit = 'spades'
-  } else if (suitN == 2) {
+  } else if (suitN === 2) {
     card.suit = 'diamonds'
-  } else if (suitN == 3) {
+  } else if (suitN === 3) {
     card.suit = 'hearts'
   }
 
   const valueN = encoding % 13  
-  if (valueN == 0) {
+  if (valueN === 0) {
     card.value = 'A'
-  } else if (valueN == 10) {
+  } else if (valueN === 10) {
     card.value = 'J'
-  } else if (valueN == 11) {
+  } else if (valueN === 11) {
     card.value = 'Q'
-  } else if (valueN == 12) {
+  } else if (valueN === 12) {
     card.value = 'K'
   } else {
     card.value = valueN + 1

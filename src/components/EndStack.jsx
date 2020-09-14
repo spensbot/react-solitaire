@@ -57,6 +57,9 @@ export default function EndStack({index}) {
       canDrop: !!monitor.canDrop()
     })
   })
+
+  function nothing(bool) {}
+  nothing(isOver)
   
   return (
     <div className={classes.root} ref={drop}>

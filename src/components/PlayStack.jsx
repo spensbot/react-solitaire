@@ -21,8 +21,8 @@ export default function PlayStack({stackIndex}) {
 
   const faceDown = stack.faceDown.map(((card) => {
     return (
-      <div className={classes.cardWrapper}>
-        <Card card={card} key={card.encoding} faceDown/>
+      <div className={classes.cardWrapper} key={card.encoding}>
+        <Card card={card} faceDown/>
       </div>
     )
   }))
