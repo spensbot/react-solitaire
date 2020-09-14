@@ -8,11 +8,6 @@ import { moveCards } from '../redux/gameSlice'
 import Overlay from './sub-components/Overlay'
 
 const useStyles = makeStyles( theme => ({
-  root: {
-    position: "relative",
-    width: '10vw',
-    margin: '0 3vw 0 0'
-  },
   overlay: {
     position: "absolute",
     top: 0,
@@ -26,7 +21,14 @@ export default function EndStack({index}) {
   const classes = useStyles()
 
   const stack = useSelector(state => state.game.endStacks[index])
+  const isMobile = useSelector(state => state.general.isMobile)
   const dispatch = useDispatch()
+
+  const root = {
+    position: "relative",
+    width: isMobile ? '13vw': '10vw',
+    margin: isMobile ? '0 1vw 0 0': '0 3vw 0 0'
+  }
 
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: "CARDS",
@@ -62,7 +64,7 @@ export default function EndStack({index}) {
   nothing(isOver)
   
   return (
-    <div className={classes.root} ref={drop}>
+    <div style={root} ref={drop}>
       <Overlay isVisible={canDrop} >
         <Card card={last(stack.faceUp)}/>
       </Overlay>

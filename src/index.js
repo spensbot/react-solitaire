@@ -5,10 +5,12 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import App from './App';
 import gameReducer from './redux/gameSlice'
+import generalReducer from './redux/generalSlice'
 
 const store = configureStore({
   reducer: {
-    game: gameReducer
+    game: gameReducer,
+    general: generalReducer
   }
 })
 

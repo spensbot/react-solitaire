@@ -14,7 +14,6 @@ const useStyles = makeStyles( theme => ({
     flexDirection: 'column',
     borderRadius: '5%',
     position: 'relative',
-    margin: '0 10%'
   },
   value: {
     fontSize: '10vh',

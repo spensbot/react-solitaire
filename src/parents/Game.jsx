@@ -1,23 +1,22 @@
 import React from 'react'
-import { Box, makeStyles } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import Surface from '../components/Surface'
 import Play from './Play'
 import End from './End'
 import Draw from './Draw'
-
-
-const useStyles = makeStyles( themes => ({
-  game: {
-    padding: '5%'
-  }
-}))
+import { useSelector } from 'react-redux'
 
 export default function Main() {
-  const classes = useStyles()
+
+  const isMobile = useSelector(state => state.general.isMobile)
+
+  const root = {
+    padding: isMobile ? '2%' : '5%'
+  }
 
   return (
     <Surface>
-      <div className={classes.game}>
+      <div style={root}>
         <Box display="flex" justifyContent="space-between" marginBottom="5%">
           <End />
           <Draw />

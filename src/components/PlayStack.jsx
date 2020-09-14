@@ -1,34 +1,30 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
 import Card from './Card'
 import DragStack from './DragStack'
 import { useSelector } from 'react-redux'
 
-
-const useStyles = makeStyles( theme => ({
-  root: {
-    width: '10vw',
-  },
-  cardWrapper: {
-    margin: '0 0 -100%'
-  },
-}))
-
 export default function PlayStack({stackIndex}) {
-  const classes = useStyles()
 
   const stack = useSelector(state => state.game.playStacks[stackIndex])
+  const isMobile = useSelector(state => state.general.isMobile)
+
+  const root = {
+    width: isMobile ? '13vw' : '10vw'
+  }
+  const cardWrapper = {
+    margin: '0 0 -100%'
+  }
 
   const faceDown = stack.faceDown.map(((card) => {
     return (
-      <div className={classes.cardWrapper} key={card.encoding}>
+      <div style={cardWrapper} key={card.encoding}>
         <Card card={card} faceDown/>
       </div>
     )
   }))
 
   return (
-    <div className={classes.root}>
+    <div style={root}>
       {faceDown}
       <DragStack subStack={stack.faceUp} stackIndex={stackIndex}/>
     </div>

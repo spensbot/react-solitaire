@@ -3,23 +3,21 @@ import { makeStyles } from '@material-ui/core'
 import Card from '../components/Card'
 import { useSelector, useDispatch } from 'react-redux'
 import { drawNext, drawReset } from '../redux/gameSlice'
-import { useDrag } from 'react-dnd'
+import { useDrag, DragPreviewImage } from 'react-dnd'
 import { last } from '../util/util' 
+import dragImage from '../images/pizza.png'
 
 const useStyles = makeStyles( theme => ({
   root: {
     display: 'flex'
   },
-  cardWrapper: {
-    width: '10vw',
-    margin: '0 0 0 3vw'
-  }
 }))
 
 export default function Draw() {
   const classes = useStyles()
 
   const drawStack = useSelector(state => state.game.drawStacks[0])
+  const isMobile = useSelector(state => state.general.isMobile)
   const dispatch = useDispatch()
 
   const isFaceUp = drawStack.faceUp.length > 0
@@ -32,7 +30,7 @@ export default function Draw() {
       dispatch(drawReset())
   }
 
-  const [{isDragging}, drag] = useDrag({
+  const [{isDragging}, drag, preview] = useDrag({
     item: {
       type: "CARDS",
       from: {
@@ -47,12 +45,21 @@ export default function Draw() {
     }),
   })
 
+  const cardWrapper = {
+    width: isMobile ? '13vw' : '10vw',
+    margin: isMobile ? '0 0 0 1vw' : '0 0 0 3vw',
+    opacity: isDragging ? 0.5 : 1
+  }
+
   return (
     <div className={classes.root}>
-      <div className={classes.cardWrapper} ref={isFaceUp ? drag : null} style={{opacity: isDragging ? 0.5 : 1}}>
-      <Card card={last(drawStack.faceUp)}/>
-      </div>
-      <div className={classes.cardWrapper} onClick={cycleThroughStack} >
+      <>
+        {/* <DragPreviewImage connect={preview} src={dragImage} /> */}
+        <div style={cardWrapper} ref={isFaceUp ? drag : null}>
+        <Card card={last(drawStack.faceUp)}/>
+        </div>
+      </>
+      <div style={cardWrapper} onClick={cycleThroughStack} >
       <Card card={last(drawStack.faceDown)} faceDown/>
       </div>
     </div>
