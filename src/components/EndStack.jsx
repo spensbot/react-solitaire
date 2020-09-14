@@ -1,5 +1,4 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
 import Card from '../components/Card'
 import { useDrop } from 'react-dnd'
 import { last } from '../util/util'
@@ -7,18 +6,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { moveCards } from '../redux/gameSlice'
 import Overlay from './sub-components/Overlay'
 
-const useStyles = makeStyles( theme => ({
-  overlay: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0
-  }
-}))
 
 export default function EndStack({index}) {
-  const classes = useStyles()
 
   const stack = useSelector(state => state.game.endStacks[index])
   const isMobile = useSelector(state => state.general.isMobile)

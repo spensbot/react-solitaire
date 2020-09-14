@@ -3,9 +3,8 @@ import { makeStyles } from '@material-ui/core'
 import Card from '../components/Card'
 import { useSelector, useDispatch } from 'react-redux'
 import { drawNext, drawReset } from '../redux/gameSlice'
-import { useDrag, DragPreviewImage } from 'react-dnd'
-import { last } from '../util/util' 
-// import dragImage from '../images/pizza.png'
+import { useDrag } from 'react-dnd'
+import { last } from '../util/util'
 
 const useStyles = makeStyles( theme => ({
   root: {
@@ -30,7 +29,7 @@ export default function Draw() {
       dispatch(drawReset())
   }
 
-  const [{isDragging}, drag, preview] = useDrag({
+  const [{isDragging}, drag] = useDrag({
     item: {
       type: "CARDS",
       from: {
@@ -54,7 +53,6 @@ export default function Draw() {
   return (
     <div className={classes.root}>
       <>
-        {/* <DragPreviewImage connect={preview} src={dragImage} /> */}
         <div style={cardWrapper} ref={isFaceUp ? drag : null}>
         <Card card={last(drawStack.faceUp)}/>
         </div>
