@@ -11,20 +11,30 @@ export default function Game() {
 
   const isMobile = useSelector(state => state.general.isMobile)
 
+  const container = {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center'
+  }
   const root = {
-    padding: isMobile ? '5% 1%' : '5%'
+    padding: isMobile ? '5% 1%' : '5%',
+    maxWidth: '100vh',
+    width: '100%'
   }
 
   return (
     <Surface>
-      <div style={root}>
-        <FixedAspectRatio ratio={4} >
-          <Box width="100%" display="flex" justifyContent="space-between" marginBottom="5%">
-            <End />
-            <Draw />
-          </Box>
-        </FixedAspectRatio>
-        <Play />
+      <div style={container}>
+        <div style={root}>
+          <FixedAspectRatio ratio={4} >
+            <Box width="100%" display="flex" justifyContent="space-between" marginBottom="5%">
+              <End />
+              <Draw />
+            </Box>
+          </FixedAspectRatio>
+          <Play />
+        </div>
       </div>
     </Surface>
   )
